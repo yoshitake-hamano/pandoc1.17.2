@@ -1,4 +1,4 @@
-FROM ubuntu:17.04
+FROM ubuntu:16.10
 
 MAINTAINER yoshitake.hamano "oed0cow6oy5@gmail.com"
 
@@ -13,6 +13,8 @@ RUN apt-get install -y texlive-latex-extra
 RUN apt-get install -y fontforge
 RUN apt-get install -y wget
 RUN apt-get install -y git
+
+# fonts
 RUN mkdir -p ~/.fonts
 RUN git clone git://github.com/google/fonts.git
 RUN cp fonts/ofl/inconsolata/*.ttf ~/.fonts
@@ -22,9 +24,12 @@ RUN cp migu-1m-20150712/*.ttf ~/.fonts
 RUN git clone git://github.com/chitoku-k/Ricty.git
 RUN cd Ricty; sh ricty_generator.sh auto
 RUN cp Ricty/*.ttf ~/.fonts
+
+# pandoc
 RUN apt-get install -y pandoc pandoc-citeproc python-pandocfilters
 RUN apt-get install -y python-pygraphviz
 RUN apt-get install -y software-properties-common
+RUN apt-get install -y plantuml
 RUN add-apt-repository 'deb http://ppa.launchpad.net/kbonne/pandoc-plantuml-filter/ubuntu utopic main'
 RUN apt-get update -qq
 RUN apt-get install -y --allow-unauthenticated pandoc-plantuml-filter
