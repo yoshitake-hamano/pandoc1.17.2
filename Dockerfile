@@ -22,7 +22,6 @@ RUN cp migu-1m-20150712/*.ttf ~/.fonts
 RUN git clone git://github.com/chitoku-k/Ricty.git
 RUN cd Ricty; sh ricty_generator.sh auto
 RUN cp Ricty/*.ttf ~/.fonts
-RUN rm -rf *
 RUN apt-get install -y pandoc pandoc-citeproc python-pandocfilters
 RUN apt-get install -y python-pygraphviz
 RUN apt-get install -y software-properties-common
