@@ -20,10 +20,8 @@ RUN wget 'https://osdn.net/frs/redir.php?m=jaist&f=%2Fmix-mplus-ipa%2F63545%2Fmi
 RUN unzip migu-1m-20150712.zip
 RUN cp migu-1m-20150712/*.ttf ~/.fonts
 RUN git clone git://github.com/chitoku-k/Ricty.git
-RUN cd Ricty
-RUN sh ricty_generator.sh auto
-RUN cp *.ttf ~/.fonts
-RUN cd ..
+RUN cd Ricty; sh ricty_generator.sh auto
+RUN cp Ricty/*.ttf ~/.fonts
 RUN rm -rf *
 RUN apt-get install -y pandoc pandoc-citeproc python-pandocfilters
 RUN apt-get install -y python-pygraphviz
